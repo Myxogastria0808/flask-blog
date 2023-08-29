@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/admin-userdeletefailed.css') }}">
+<title>入力エラー -Extra Study-</title>
+{% endblock %}
+{% block body %}
+    <h1 class="ja">入力情報に誤りがあります。</h1>
+    <a href="/admin" class="btn_27 button ja">管理画面に戻る</a>
+{% endblock %}

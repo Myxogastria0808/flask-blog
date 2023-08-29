@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/admin-userdelete.css') }}">
+<title>生徒登録 -Extra Study-</title>
+{% endblock %}
+{% block body %}
+<div class="body-container">
+    <div class="h1-container">
+        <h1 class="ja">生徒情報削除フォーム</h1>
+        <p class="ja">
+            {{user.username}}さんの登録情報を削除するには、
+            以下の入力フォームに{{user.name}}さんのメールアドレス( {{user.email}} )とパスワードを入力してください。
+        </p>
+    </div>
+    <div class="box_con">
+        <form method="POST">
+            {{ form.csrf_token }}
+            <table class="formTable">
+                <tr>
+                    <th class="ja">Email</th>
+                    <td>{{ form.email(size="30") }}</td>
+                </tr>
+                <tr>
+                    <th class="ja">パスワード</th>
+                    <td>{{ form.password(size="30") }}</td>
+                </tr>
+            </table>
+            <p class="btn">
+                <span>{{ form.submit(class="ja login") }}</span>
+            </p>
+        </form>
+        <div class="button"><a href="/admin" class="btn_27 ja">戻る</a></div>
+    </div>
+</div>
+{% endblock %}

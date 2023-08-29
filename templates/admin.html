@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/admin.css') }}">
+<title>管理者 -Extra Study-</title>
+{% endblock %}
+{% block body %}
+<div class="body-container">
+    <div class="h1-container">
+        <h1 class="ja">管理者画面</h1>
+        <div class="button-parent">
+            <div class="button-child"><a href="/create" class="btn_27 create ja">新規作成</a></div>
+            <div class="button-child"><a href="/adminlogout" class="btn_27 logout ja">ログアウト</a></div>
+        </div>
+    </div>
+</div>
+<br>
+    {% for user in user %}
+    <br>
+    <div class="member-container">
+        <h2 class="ja">{{ user.username }}</h2>
+        <p class="ja subtitle">Email</p>
+        <p class="ja text">{{ user.email }}</p>
+        <p class="ja subtitle">Calendar</p>
+        <div class="calendar">
+            {{ user.calender|safe }}
+        </div>
+        <p class="ja subtitle">Talky URL</p>
+        <a href="{{user.room}}" target="_blank" rel="noopener noreferrer"><p class="ja text">{{ user.room }}</p></a>
+        <div class="button-parent-user">
+            <div class="button-child"><a href="/{{user.id}}/update" class="btn_27 button-padding ja">編集</a></div>
+            <div class="button-child"><a href="/{{user.id}}/delete" class="btn_27 button-padding ja">削除</a></div>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+</div>
+{% endblock %}
